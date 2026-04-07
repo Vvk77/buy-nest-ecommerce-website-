@@ -29,7 +29,7 @@ const Body = () => {
     element: <ProductPage />,
   },
    {
-    path: "/product/:productId",  // <-- Add this route!
+    path: "/product/:productId",  
     element: <ProductDetails />,
   },
 {

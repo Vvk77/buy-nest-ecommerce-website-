@@ -61,9 +61,8 @@ const ProductPage = () => {
   return (
     <>
       <Navbar />
-      {/* padding top equal to fixed navbar height (64px) so content is visible */}
       <div className="pt-16 max-w-7xl mx-auto px-6">
-        {/* Search and Sort controls */}
+    
         <div className="mt-8 flex flex-col md:flex-row gap-4 justify-between items-center">
           <div className="w-full md:w-1/2 bg-gray-100 p-2 rounded-xl shadow-sm">
             <input

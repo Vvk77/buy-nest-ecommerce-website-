@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import CartContext from "../Context/CartContext";
+
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { addToCart, addToWishlist } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productId}`)
@@ -55,10 +60,10 @@ const ProductDetails = () => {
             <div>
               <p className="text-3xl font-bold text-blue-600 mb-8">${product.price}</p>
               <div className="flex gap-4">
-                <button className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                <button onClick={() => addToCart(product)} className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
                   Add to Cart
                 </button>
-                <button className="flex-1 border border-blue-600 text-blue-600 py-3 rounded-lg hover:bg-blue-100 transition">
+                <button  onClick={() => addToWishlist(product)} className="flex-1 border border-blue-600 text-blue-600 py-3 rounded-lg hover:bg-blue-100 transition">
                   Add to Wishlist
                 </button>
               </div>
